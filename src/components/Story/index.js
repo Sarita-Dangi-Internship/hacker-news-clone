@@ -13,6 +13,12 @@ const CustomLink = ({ url, title }) => (
 export default class Story extends Component {
   render() {
     const { id, by, title, kids, time, url, score } = this.props.storyData;
+
+    const handledateFormat = (time) =>
+      (new Date(new Date().toLocaleDateString()).getTime() -
+        new Date(new Date(time * 1000).toLocaleDateString()).getTime()) /
+      (1000 * 3600 * 24);
+
     return (
       <li>
         <div className="story">
@@ -27,20 +33,11 @@ export default class Story extends Component {
             </span>{" "}
             |{" "}
             <span>
-              {/* {new Date(time * 1000).toLocaleDateString()} */}
-              {(new Date(new Date().toLocaleDateString()).getTime() -
-                new Date(
-                  new Date(time * 1000).toLocaleDateString()
-                ).getTime()) /
-                (1000 * 3600 * 24)}{" "}
+              {handledateFormat(time)}
               days ago
             </span>{" "}
             |{" "}
             <span>
-              <CustomLink
-                url={`${BASE_PAGE_URL}/item?id=${id}`}
-                title={`${kids && kids.length > 0 ? kids.length : 0} comments`}
-              />
               <Link to={`${routes.comments}/${id}`}>{`${
                 kids && kids.length > 0 ? kids.length : 0
               } comments`}</Link>
