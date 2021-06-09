@@ -75,6 +75,9 @@ select {
   /**********
    * navbar *
    **********/
+   ul.comment{
+     list-style-type: square;
+   }
   .nav-bar {
     width: 100%;
     background: rgb(241, 122, 25);
