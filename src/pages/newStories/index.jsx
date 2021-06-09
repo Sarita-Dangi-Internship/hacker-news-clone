@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { BASE_API_URL } from "../../constants/appConstant";
+import CONSTANTS from "../../constants/appConstant";
 import Story from "./../../components/Story/index";
 
+const { BASE_API_URL } = CONSTANTS;
 export default class TopStories extends Component {
   state = {
     topStories: [],
