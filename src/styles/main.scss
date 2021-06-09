@@ -49,7 +49,10 @@ p {
   color: #1a1919cc;
   margin: 10px 0;
 }
-
+a {
+  text-decoration: none;
+  color: #1a1919cc;
+}
 input,
 textarea,
 button,
@@ -77,30 +80,46 @@ select {
     background: rgb(241, 122, 25);
     z-index: 1;
     color: white;
-    padding: 15px;
+    padding: 8px;
     margin-bottom: 10px;
     /************
-   * navbar ul *
-   ************/
+     * navbar ul *
+     ************/
     &__list {
       list-style: none;
       display: flex;
       justify-content: space-around;
       align-items: center;
       /**************
-      * navbar link *
-      ***************/
+       * navbar link *
+       ***************/
       .nav-bar__list-link {
         text-decoration: none;
         color: white;
         /****************
-          * navbar title *
-          ****************/
+         * navbar title *
+         ****************/
         .nav-bar--title {
           color: black;
           font-weight: bold;
           font-size: 20px;
         }
+      }
+    }
+  }
+  /*******************
+  * story container  *
+  *******************/
+
+  .story-container {
+    padding: 20px 30px;
+    .story {
+      margin-bottom: 20px;
+      &__title {
+        font-size: 18px;
+      }
+      &__info{
+        font-size: 12px;
       }
     }
   }
