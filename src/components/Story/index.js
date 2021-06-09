@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
+import CONSTANTS from "../../constants/appConstant";
+
+const { BASE_PAGE_URL } = CONSTANTS;
 
 const Link = ({ url, title }) => (
   <a href={url} target="_blank" rel="noreferrer">
@@ -20,22 +23,22 @@ export default class Story extends Component {
           <div className="story__info">
             <span>
               {score} points by{" "}
-              <Link
-                url={`https://news.ycombinator.com/user?id=${by}`}
-                title={by}
-              />
+              <Link url={`${BASE_PAGE_URL}/user?id=${by}`} title={by} />
             </span>{" "}
             |{" "}
             <span>
-              {new Date(time * 1000).toLocaleDateString("en-US", {
-                hour: "numeric",
-                minute: "numeric",
-              })}
+              {/* {new Date(time * 1000).toLocaleDateString()} */}
+              {(new Date(new Date().toLocaleDateString()).getTime() -
+                new Date(
+                  new Date(time * 1000).toLocaleDateString()
+                ).getTime()) /
+                (1000 * 3600 * 24)}{" "}
+              days ago
             </span>{" "}
-            |{" "}   
+            |{" "}
             <span>
               <Link
-                url={`https://news.ycombinator.com/item?id=${id}`}
+                url={`${BASE_PAGE_URL}/item?id=${id}`}
                 title={`${kids && kids.length > 0 ? kids.length : 0} comments`}
               />
             </span>
