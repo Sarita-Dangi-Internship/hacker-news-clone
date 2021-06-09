@@ -10,30 +10,32 @@ const Link = ({ url, title }) => (
 
 export default class Comment extends Component {
   render() {
-    const { id, by, title, kids, time, url } = this.props.commentData;
+    const { by, text, parent, time, url } = this.props.commentData;
+
+    const handledateFormat = (time) =>
+      (new Date(new Date().toLocaleDateString()).getTime() -
+        new Date(new Date(time * 1000).toLocaleDateString()).getTime()) /
+      (1000 * 3600 * 24);
+
     return (
       <li>
         <div className="story">
-          <div className="story__title">
-            <Link url={url} title={title} />
-          </div>
-
           <div className="story__info">
             <span>
-              {(new Date(new Date().toLocaleDateString()).getTime() -
-                new Date(
-                  new Date(time * 1000).toLocaleDateString()
-                ).getTime()) /
-                (1000 * 3600 * 24)}{" "}
+              <Link url={`${BASE_PAGE_URL}/user?id=${by}`} title={by} />
+            </span>{" "}
+            |{" "}
+            <span>
+              {handledateFormat(time)}
               days ago
             </span>{" "}
             |{" "}
             <span>
-              <Link
-                url={`${BASE_PAGE_URL}/item?id=${id}`}
-                title={`${kids && kids.length > 0 ? kids.length : 0} comments`}
-              />
+              <Link url={`${BASE_PAGE_URL}/item?id=${parent}`} title="Parent" />
             </span>
+          </div>
+          <div className="story__title">
+            <Link url={url} title = { text }  />
           </div>
         </div>
       </li>
