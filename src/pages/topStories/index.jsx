@@ -8,7 +8,6 @@ const { BASE_API_URL } = CONSTANTS;
 export default class TopStories extends Component {
   state = {
     topStories: [],
-    comments:[],
     isLoading: true,
   };
 
@@ -27,11 +26,7 @@ export default class TopStories extends Component {
       console.log(stories);
       this.setState({ topStories: stories, isLoading: false });
 
-      // const comments = await Promise.all(
-      //   stories.map((storyId) =>(storyId.data.kids.slice(0,5).map(kidId=>console.log(kidId))))
-      // );
-      // console.log(comments);
-      // this.setState({ comments: comments, isLoading: false });
+      
     } catch (e) {
       console.log("error");
     }
@@ -50,20 +45,6 @@ export default class TopStories extends Component {
       console.log("error");
     }
   };
-
-  // /**
-  //  * 
-  //  * @param {*} id 
-  //  * @returns comments of each story
-  //  */
-  // getComments = async (id) => {
-  //   try {
-  //     const comment = await axios.get(`${BASE_API_URL}/item/${id}.json`);
-  //     return comment;
-  //   } catch (e) {
-  //     console.log("error");
-  //   }
-  // };
 
   render() {
     return (
