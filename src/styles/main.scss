@@ -49,7 +49,10 @@ p {
   color: #1a1919cc;
   margin: 10px 0;
 }
-
+a {
+  text-decoration: none;
+  color: #1a1919cc;
+}
 input,
 textarea,
 button,
@@ -60,26 +63,67 @@ select {
   margin: 3px 0;
   border-radius: 5px;
 }
-.nav-bar {
+
+/**********************
+ * main container box *
+ **********************/
+.main-container {
+  max-width: 1000px;
   width: 100%;
-  background: black;
-  color: white;
-  padding: 15px;
-  margin-bottom: 10px;
-  .nav-bar__list {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    .nav-bar__list-link {
-      text-decoration: none;
-      color: white;
+  margin: 10px auto;
+  background: rgb(224, 215, 172);
+  /**********
+   * navbar *
+   **********/
+   ul.comment{
+     list-style-type: square;
+   }
+  .nav-bar {
+    width: 100%;
+    background: rgb(241, 122, 25);
+    z-index: 1;
+    color: white;
+    padding: 8px;
+    margin-bottom: 10px;
+    /************
+     * navbar ul *
+     ************/
+    &__list {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      /**************
+       * navbar link *
+       ***************/
+      .nav-bar__list-link {
+        text-decoration: none;
+        color: white;
+        /****************
+         * navbar title *
+         ****************/
+        .nav-bar--title {
+          color: black;
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
     }
   }
-}
+  /*******************
+  * story container  *
+  *******************/
 
-.main-container {
-  width: 100%;
-  padding: 10px;
-  display: flex;
+  .story-container {
+    padding: 20px 30px;
+    .story {
+      margin-bottom: 20px;
+      &__title {
+        font-size: 18px;
+      }
+      &__info{
+        font-size: 12px;
+      }
+    }
+  }
 }
